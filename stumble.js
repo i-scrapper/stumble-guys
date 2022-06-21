@@ -81,23 +81,15 @@ function iStumble(interval, round, authorization) {
     setInterval(async function iStumble() {
         try {
             const { data } = await stageRequest(authorization, round);
-            if (typeof data != "object") {
-                if (data.includes("SERVER_ERROR")) {
-                    console.error(color("SERVER_ERROR", "redBright"));
-                } else if (data.includes("BANNED")) {
-                    console.error(color("BANNED", "redBright"));
-                } else {
-                    console.error(color(data, "redBright"));
-                }
-            } else {
+            if (typeof data == "string" && data.includes("BANNED")) {
+                console.error(color("BANNED", "redBright"));
+            } else if (typeof data == "object") {
                 const date = new Date();
                 let { Id, Username, Country, Region, Crowns, SkillRating } = data.User;
                 const print = `[${color(date.getHours())}:${date.getMinutes()}] ` + [color(Id, "blueBright"), color(Username), color(Country, "cyan"), color(Region, "cyanBright"), color(Crowns, "greenBright"), color(SkillRating, "yellowBright")].join(" | ");
                 console.log(print);
             }
-        } catch (error) {
-            console.error(error);
-        }
+        } catch (error) {}
     }, Number(interval));
 }
 
@@ -119,11 +111,6 @@ function stageRequest(authorization, round) {
             .then((response) => {
                 resolve(response);
             })
-            .catch((error) => {
-                if (error.response && error.response.status) {
-                    console.log(color(`${error.response.status}: ${error.response.statusText}`, "redBright"));
-                }
-                reject(error);
-            });
+            .catch(reject);
     });
 }
