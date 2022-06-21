@@ -21,3 +21,7 @@
 5. fill in input Authorization keys
 6. fill in Interval Delay (ms) [default: 1000]
 7. enjoy and use your own risk
+
+## Credit
+
+This sourcecode was recoded from [node-stumble-guys](https://github.com/dkmpostor/node-stumble-guys)
