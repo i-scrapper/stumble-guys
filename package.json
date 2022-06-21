@@ -1,0 +1,30 @@
+{
+  "name": "@i-scrapper/stumble-guys",
+  "version": "1.0.0",
+  "description": "Stumble-Guys - i-scrapper",
+  "main": "stumble.js",
+  "scripts": {
+    "test": "node .",
+    "start": "node ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/i-scrapper/stumble-guys.git"
+  },
+  "keywords": [
+    "stumble-guys",
+    "i-scrapper"
+  ],
+  "author": "i-scrapper",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/i-scrapper/stumble-guys/issues"
+  },
+  "homepage": "https://github.com/i-scrapper/stumble-guys#readme",
+  "dependencies": {
+    "@i-scrapper/plugins-request": "^1.0.0",
+    "chalk": "^4.1.2",
+    "figlet": "^1.5.2",
+    "inquirer": "^8.2.4"
+  }
+}
